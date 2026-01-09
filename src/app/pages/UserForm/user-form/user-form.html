@@ -1,0 +1,70 @@
+<div class="form-container" *ngIf="formLoaded">
+  <h2>{{ isEdit ? 'Edit User' : 'Add User' }}</h2>
+
+  <form [formGroup]="userForm" (ngSubmit)="save()">
+
+    <div class="form-row">
+      <div>
+        <label>Name:</label>
+        <input type="text" formControlName="fullName" placeholder="Enter full name" />
+        <small class="error"
+          *ngIf="userForm.get('fullName')?.touched && userForm.get('fullName')?.invalid">
+          Name is required
+        </small>
+      </div>
+
+      <div>
+        <label>Address:</label>
+        <textarea formControlName="address" rows="3" placeholder="Enter address"></textarea>
+        <small class="error"
+          *ngIf="userForm.get('address')?.touched && userForm.get('address')?.invalid">
+          Address is required
+        </small>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div>
+        <label>Department:</label>
+        <select formControlName="departmentId">
+          <option *ngFor="let dept of departments" [ngValue]="dept.id">
+            {{ dept.name }}
+          </option>
+        </select>
+      </div>
+
+      <div>
+        <label>Gender:</label>
+        <div class="gender">
+          <label><input type="radio" value="M" formControlName="gender" /> Male</label>
+          <label><input type="radio" value="F" formControlName="gender" /> Female</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div>
+        <label>Date of Joining:</label>
+        <input type="date" formControlName="dateOfJoining" />
+      </div>
+
+      <div>
+        <label>Hobbies:</label>
+        <div formArrayName="hobbies" class="hobbies">
+          <label *ngFor="let ctrl of hobbiesControls; let i = index">
+            <input type="checkbox" [formControlName]="i" />
+            {{ hobbiesOptions[i].name }}
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-buttons">
+      <button type="submit" [disabled]="userForm.invalid">
+        {{ isEdit ? 'Update' : 'Save' }}
+      </button>
+      <button type="button" (click)="back()">Back</button>
+    </div>
+
+  </form>
+</div>

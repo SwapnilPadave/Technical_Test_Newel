@@ -1,0 +1,26 @@
+<div class="login-wrapper">
+  <div class="login-container">
+    <div class="form-row">
+      <label>Username:</label>
+      <input
+        type="text"
+        placeholder="Registered Email ID / Mobile No"
+        [(ngModel)]="username"
+      />
+    </div>
+
+    <div class="form-row">
+      <label>Password:</label>
+      <input
+        type="password"
+        [(ngModel)]="password"
+      />
+    </div>
+
+    <button type="button" (click)="login()" [disabled]="isLoading">
+  {{ isLoading ? 'Logging in...' : 'Login' }}
+</button>
+
+    <p class="error">{{ error }}</p>
+  </div>
+</div>

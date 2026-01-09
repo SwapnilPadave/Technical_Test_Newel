@@ -1,0 +1,25 @@
+
+<nav *ngIf="authService.isLoggedIn()" 
+     style="background-color: gray; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center;">
+  
+  <div style="display: flex; gap: 20px; align-items: center;">
+    <a routerLink="/dashboard" style="color: white; text-decoration: none; font-weight: bold;">Dashboard</a>
+    <a routerLink="/userList" style="color: white; text-decoration: none; font-weight: bold;">User List</a>
+    <a routerLink="/userForm" style="color: white; text-decoration: none; font-weight: bold;">User Form</a>
+  </div>
+
+  <div>
+    <button (click)="logout()" 
+            style="padding: 5px 12px; cursor: pointer; background-color: transparent; border: 1px solid white; color: white; border-radius: 4px;">
+      Logout
+    </button>
+  </div>
+</nav>
+
+<nav *ngIf="!authService.isLoggedIn()" 
+     style="background-color: gray; padding: 10px 20px; display: flex; justify-content: flex-end; align-items: center;">
+  <button routerLink="/login" 
+          style="padding: 5px 12px; cursor: pointer; background-color: transparent; border: 1px solid white; color: white; border-radius: 4px;">
+    Login
+  </button>
+</nav>

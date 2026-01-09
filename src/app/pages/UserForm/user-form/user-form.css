@@ -1,0 +1,74 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fff8dc;
+}
+
+.form-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 30px 50px;
+  box-sizing: border-box;
+}
+
+h2 {
+  margin-bottom: 30px;
+  color: #000;
+  border-bottom: 2px solid #000;
+  padding-bottom: 5px;
+  width: fit-content;
+}
+
+.form-row {
+  display: flex;
+  gap: 50px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.form-row div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"], input[type="date"], select, textarea {
+  padding: 5px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.gender label {
+  margin-right: 15px;
+}
+
+.hobbies label {
+  display: block;
+}
+
+.form-buttons {
+  margin-top: 30px;
+}
+
+.form-buttons button {
+  padding: 8px 20px;
+  margin-right: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+}
+
+.form-buttons button[type="submit"] {
+  background-color: #cce5ff;
+}
+
+.form-buttons button[type="button"] {
+  background-color: #ffcce0;
+}
+
+.form-buttons button.update-btn {
+  background-color: #d4edda;
+}

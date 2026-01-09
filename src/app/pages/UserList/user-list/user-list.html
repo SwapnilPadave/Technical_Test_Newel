@@ -1,0 +1,62 @@
+<div class="user-list-container" style="max-width: 1000px; margin: auto; padding: 20px;">
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+
+        <div style="display: flex; gap: 10px;">
+            <input type="text" placeholder="Search by name..." [(ngModel)]="searchText"
+                style="padding: 8px; width: 250px;" />
+            <button (click)="onSearchClick()" style="padding: 8px 16px; cursor: pointer;">
+                Search
+            </button>
+        </div>
+
+        <div>
+            <button (click)="createUser()" style="padding: 8px 16px; cursor: pointer;">
+                Create New
+            </button>
+        </div>
+    </div>
+
+    <p *ngIf="isLoading" style="text-align:center; color:blue;">Loading users...</p>
+
+    <table *ngIf="!isLoading && users.length > 0" border="1" cellpadding="10" cellspacing="0"
+        style="width:100%; border-collapse:collapse;">
+        <thead style="background-color:#f0f0f0;">
+            <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Address</th>
+                <th>Department</th>
+                <th>Date Of Joining</th>
+                <th>Gender</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{ user.id }}</td>
+                <td>{{ user.fullName }}</td>
+                <td>{{ user.address }}</td>
+                <td>{{ user.departmentName }}</td>
+                <td>{{ user.dateOfJoining | date:'yyyy-MM-dd' }}</td>
+                <td>{{ user.gender }}</td>
+                <td>
+                    <button (click)="editUser(user.id)" style="padding:4px 10px; cursor:pointer;">
+                        Edit
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p *ngIf="!isLoading && users.length === 0" style="text-align:center; margin-top:20px;">
+        No users found.
+    </p>
+    <br>
+
+    <div>
+        <button (click)="back()" style="padding: 8px 16px; cursor: pointer;">
+            Back
+        </button>
+    </div>
+</div>

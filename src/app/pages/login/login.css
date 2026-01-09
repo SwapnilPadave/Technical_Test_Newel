@@ -1,0 +1,62 @@
+/* Page background and centering */
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #fff4cc; /* light yellow like image */
+}
+
+/* Login box */
+.login-container {
+  padding: 40px 50px;
+}
+
+/* Label + input alignment */
+.form-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.form-row label {
+  width: 100px;
+  font-weight: bold;
+}
+
+.form-row input {
+  width: 260px;
+  padding: 6px 8px;
+  border: 1px solid #000;
+  outline: none;
+}
+
+/* Button styling (NORMAL button) */
+.button-row {
+  text-align: center;
+  margin-top: 30px;
+}
+
+button {
+  padding: 6px 20px;
+  font-size: 14px;
+  border: 1px solid #000;
+  background: #e6e6e6;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #dcdcdc;
+}
+
+/* Error text */
+.error {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}
+button {
+  pointer-events: auto;
+  position: relative;
+  z-index: 10;
+}
